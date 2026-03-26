@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rahmad Haret Rayhanda — Portfolio</title>
+  <title>Rahmad Haret Rayhanda &mdash; Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -34,7 +34,6 @@
       cursor: none;
     }
 
-    /* Custom cursor */
     .cursor {
       width: 12px; height: 12px;
       background: var(--accent);
@@ -54,7 +53,6 @@
       opacity: 0.5;
     }
 
-    /* Noise overlay */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -62,7 +60,6 @@
       pointer-events: none; z-index: 9997; opacity: 0.4;
     }
 
-    /* Grid bg */
     body::after {
       content: '';
       position: fixed; inset: 0;
@@ -71,7 +68,6 @@
       pointer-events: none; z-index: 0;
     }
 
-    /* NAV */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
       display: flex; align-items: center; justify-content: space-between;
@@ -83,11 +79,7 @@
     }
     nav.scrolled { padding: 14px 6%; }
 
-    .nav-logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 1rem; color: var(--accent);
-      letter-spacing: 0.05em;
-    }
+    .nav-logo { font-family: 'Space Mono', monospace; font-size: 1rem; color: var(--accent); letter-spacing: 0.05em; }
     .nav-logo span { color: var(--text); }
 
     .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -98,19 +90,16 @@
     }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 1px; background: var(--accent);
-      transition: width 0.3s;
+      width: 0; height: 1px; background: var(--accent); transition: width 0.3s;
     }
     .nav-links a:hover { color: var(--accent); }
     .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem; padding: 8px 18px;
+      font-family: 'Space Mono', monospace; font-size: 0.75rem; padding: 8px 18px;
       border: 1px solid var(--accent); color: var(--accent);
-      background: transparent; border-radius: 4px;
-      cursor: none; text-decoration: none;
-      transition: all 0.3s; letter-spacing: 0.08em;
+      background: transparent; border-radius: 4px; cursor: none;
+      text-decoration: none; transition: all 0.3s; letter-spacing: 0.08em;
     }
     .nav-cta:hover { background: var(--accent); color: var(--bg); }
 
@@ -123,24 +112,19 @@
     .mobile-menu {
       display: none; position: fixed; inset: 0; top: 70px;
       background: rgba(8,12,20,0.97); backdrop-filter: blur(20px);
-      z-index: 999; flex-direction: column; align-items: center;
-      justify-content: center; gap: 36px;
+      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-size: 1.4rem; color: var(--text); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
     .mobile-menu a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero {
       min-height: 100vh; position: relative; z-index: 1;
       display: flex; align-items: center; justify-content: center;
       padding: 120px 6% 80px; overflow: hidden;
     }
 
-    .hero-orb {
-      position: absolute; border-radius: 50%; filter: blur(100px);
-      pointer-events: none; animation: orb-float 8s ease-in-out infinite;
-    }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; animation: orb-float 8s ease-in-out infinite; }
     .hero-orb-1 { width: 500px; height: 500px; background: rgba(0,212,255,0.08); top: -100px; right: -100px; }
     .hero-orb-2 { width: 400px; height: 400px; background: rgba(123,97,255,0.06); bottom: -50px; left: -100px; animation-delay: 3s; }
 
@@ -152,8 +136,7 @@
     .hero-content { max-width: 900px; position: relative; z-index: 2; }
 
     .hero-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem; color: var(--accent);
+      font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent);
       letter-spacing: 0.2em; text-transform: uppercase;
       margin-bottom: 24px; display: flex; align-items: center; gap: 12px;
       opacity: 0; animation: fade-up 0.8s 0.2s forwards;
@@ -161,30 +144,24 @@
     .hero-label::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
 
     .hero-name {
-      font-size: clamp(2.8rem, 7vw, 6rem);
-      font-weight: 800; line-height: 1.05;
-      letter-spacing: -0.02em;
-      opacity: 0; animation: fade-up 0.8s 0.4s forwards;
+      font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 800; line-height: 1.05;
+      letter-spacing: -0.02em; opacity: 0; animation: fade-up 0.8s 0.4s forwards;
     }
     .hero-name .line { display: block; }
     .hero-name .accent-text {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
 
     .hero-roles {
-      margin-top: 24px;
-      font-family: 'Space Mono', monospace;
-      font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-      color: var(--muted); line-height: 2;
+      margin-top: 24px; font-family: 'Space Mono', monospace;
+      font-size: clamp(0.75rem, 1.5vw, 0.9rem); color: var(--muted); line-height: 2;
       opacity: 0; animation: fade-up 0.8s 0.6s forwards;
     }
     .hero-roles span { color: var(--accent2); }
 
     .hero-desc {
-      margin-top: 28px; max-width: 560px;
-      font-size: 1rem; color: var(--muted); line-height: 1.8;
+      margin-top: 28px; max-width: 560px; font-size: 1rem; color: var(--muted); line-height: 1.8;
       opacity: 0; animation: fade-up 0.8s 0.8s forwards;
     }
 
@@ -192,22 +169,21 @@
       margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;
       opacity: 0; animation: fade-up 0.8s 1s forwards;
     }
+
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 14px 28px; background: var(--accent); color: var(--bg);
       border: none; border-radius: 6px; font-family: 'Syne', sans-serif;
-      font-weight: 700; font-size: 0.9rem; cursor: none;
-      text-decoration: none; transition: all 0.3s;
-      box-shadow: 0 0 30px rgba(0,212,255,0.3);
+      font-weight: 700; font-size: 0.9rem; cursor: none; text-decoration: none;
+      transition: all 0.3s; box-shadow: 0 0 30px rgba(0,212,255,0.3);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(0,212,255,0.5); }
 
     .btn-outline {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; border: 1px solid var(--border);
-      color: var(--text); border-radius: 6px; font-family: 'Syne', sans-serif;
-      font-weight: 600; font-size: 0.9rem; cursor: none;
-      text-decoration: none; transition: all 0.3s; background: transparent;
+      padding: 14px 28px; border: 1px solid var(--border); color: var(--text);
+      border-radius: 6px; font-family: 'Syne', sans-serif; font-weight: 600;
+      font-size: 0.9rem; cursor: none; text-decoration: none; transition: all 0.3s; background: transparent;
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -229,49 +205,29 @@
     }
     .hero-scroll span { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; }
     .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scroll-pulse 2s ease-in-out infinite; }
+
     @keyframes scroll-pulse { 0%,100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(0.7); } }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* SECTION BASE */
     section { position: relative; z-index: 1; }
 
-    .section-header {
-      display: flex; align-items: center; gap: 16px; margin-bottom: 60px;
-    }
-    .section-num {
-      font-family: 'Space Mono', monospace; font-size: 0.75rem;
-      color: var(--accent); letter-spacing: 0.2em;
-    }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 60px; }
+    .section-num { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.2em; }
     .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
-    /* ABOUT */
     .about-section { padding: 100px 6%; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .about-text p { color: var(--muted); line-height: 1.9; font-size: 1rem; margin-bottom: 20px; }
     .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px; }
-    .stat-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 20px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; transition: border-color 0.3s, transform 0.3s; }
     .stat-card:hover { border-color: var(--accent); transform: translateY(-4px); }
     .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); }
     .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
 
     .about-right { position: sticky; top: 100px; }
-    .about-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 32px; position: relative; overflow: hidden;
-    }
-    .about-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
+    .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; position: relative; overflow: hidden; }
+    .about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
     .about-card h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--accent); font-family: 'Space Mono', monospace; }
     .info-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
     .info-row:last-child { border-bottom: none; }
@@ -280,26 +236,13 @@
     .info-row a { color: var(--text); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
     .info-row a:hover { color: var(--accent); }
 
-    /* EXPERIENCE */
     .experience-section { padding: 100px 6%; background: var(--surface); }
     .exp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-    .exp-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px; position: relative; overflow: hidden;
-      transition: all 0.3s; cursor: none;
-    }
-    .exp-card::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,212,255,0.03), transparent);
-      opacity: 0; transition: opacity 0.3s;
-    }
+    .exp-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; transition: all 0.3s; cursor: none; }
+    .exp-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,212,255,0.03), transparent); opacity: 0; transition: opacity 0.3s; }
     .exp-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,212,255,0.1); }
     .exp-card:hover::after { opacity: 1; }
-    .exp-tag {
-      display: inline-block; padding: 4px 10px; border-radius: 4px;
-      font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 16px;
-    }
+    .exp-tag { display: inline-block; padding: 4px 10px; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
     .tag-contract { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.2); }
     .tag-fulltime { background: rgba(123,97,255,0.1); color: var(--accent2); border: 1px solid rgba(123,97,255,0.2); }
     .tag-freelance { background: rgba(255,107,107,0.1); color: var(--accent3); border: 1px solid rgba(255,107,107,0.2); }
@@ -309,73 +252,35 @@
     .exp-meta { display: flex; gap: 12px; flex-wrap: wrap; }
     .exp-meta span { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
     .exp-meta i { font-size: 12px; }
-    .exp-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 16px; font-size: 0.78rem; color: var(--accent);
-      text-decoration: none; transition: gap 0.3s;
-    }
+    .exp-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.78rem; color: var(--accent); text-decoration: none; transition: gap 0.3s; }
     .exp-link:hover { gap: 10px; }
 
-    /* EDUCATION */
     .education-section { padding: 100px 6%; }
-    .edu-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 40px; position: relative; overflow: hidden;
-      max-width: 800px; margin: 0 auto;
-    }
-    .edu-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
-    }
+    .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 40px; position: relative; overflow: hidden; max-width: 800px; margin: 0 auto; }
+    .edu-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
     .edu-degree { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
     .edu-school { font-size: 1rem; color: var(--accent); margin-bottom: 4px; }
     .edu-period { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); margin-bottom: 24px; }
-    .edu-gpa {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 8px; padding: 10px 18px; margin-bottom: 24px;
-    }
+    .edu-gpa { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); border-radius: 8px; padding: 10px 18px; margin-bottom: 24px; }
     .edu-gpa span { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--accent); }
     .edu-topics { display: flex; flex-wrap: wrap; gap: 8px; }
-    .edu-topic {
-      padding: 6px 14px; background: var(--bg); border: 1px solid var(--border);
-      border-radius: 20px; font-size: 0.78rem; color: var(--muted);
-      transition: all 0.3s;
-    }
+    .edu-topic { padding: 6px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 20px; font-size: 0.78rem; color: var(--muted); transition: all 0.3s; }
     .edu-topic:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* CERTIFICATIONS */
     .cert-section { padding: 100px 6%; background: var(--surface); }
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-    .cert-card {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px; transition: all 0.3s;
-      display: flex; flex-direction: column; gap: 12px;
-    }
+    .cert-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: all 0.3s; display: flex; flex-direction: column; gap: 12px; }
     .cert-card:hover { border-color: rgba(123,97,255,0.4); transform: translateY(-4px); }
     .cert-issuer { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent2); letter-spacing: 0.1em; }
     .cert-name { font-size: 0.95rem; font-weight: 700; line-height: 1.4; }
     .cert-date { font-size: 0.75rem; color: var(--muted); }
-    .cert-link {
-      margin-top: auto; display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.78rem; color: var(--accent2); text-decoration: none; transition: gap 0.3s;
-    }
+    .cert-link { margin-top: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--accent2); text-decoration: none; transition: gap 0.3s; }
     .cert-link:hover { gap: 10px; }
 
-    /* SKILLS */
     .skills-section { padding: 100px 6%; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-    .skill-chip {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 8px; padding: 14px 16px; text-align: center;
-      font-size: 0.82rem; color: var(--muted); transition: all 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .skill-chip::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      opacity: 0; transition: opacity 0.3s;
-    }
+    .skill-chip { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; font-size: 0.82rem; color: var(--muted); transition: all 0.3s; position: relative; overflow: hidden; }
+    .skill-chip::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
     .skill-chip:hover { color: var(--bg); border-color: transparent; transform: scale(1.05); }
     .skill-chip:hover::before { opacity: 1; }
     .skill-chip span { position: relative; z-index: 1; font-weight: 600; }
@@ -383,36 +288,17 @@
     .skills-cat-title { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
     .skills-cat-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* CV SECTION */
     .cv-section { padding: 100px 6%; background: var(--surface); }
-    .cv-wrapper {
-      max-width: 900px; margin: 0 auto;
-      background: var(--bg); border: 1px solid var(--border); border-radius: 20px;
-      overflow: hidden;
-    }
-    .cv-header {
-      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(123,97,255,0.08));
-      border-bottom: 1px solid var(--border);
-      padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
-    }
+    .cv-wrapper { max-width: 900px; margin: 0 auto; background: var(--bg); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .cv-header { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(123,97,255,0.08)); border-bottom: 1px solid var(--border); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
     .cv-header-info h2 { font-size: 1.8rem; font-weight: 800; }
     .cv-header-info p { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
-    .cv-download {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 24px; background: var(--accent); color: var(--bg);
-      border-radius: 8px; font-weight: 700; font-size: 0.85rem;
-      text-decoration: none; transition: all 0.3s; cursor: none;
-      box-shadow: 0 0 30px rgba(0,212,255,0.3); white-space: nowrap;
-    }
+    .cv-download { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent); color: var(--bg); border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.3s; cursor: none; box-shadow: 0 0 30px rgba(0,212,255,0.3); white-space: nowrap; }
     .cv-download:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(0,212,255,0.5); }
     .cv-body { padding: 48px; }
     .cv-section-block { margin-bottom: 40px; }
     .cv-section-block:last-child { margin-bottom: 0; }
-    .cv-section-label {
-      font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent);
-      letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px;
-      padding-bottom: 10px; border-bottom: 1px solid var(--border);
-    }
+    .cv-section-label { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
     .cv-item { padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
     .cv-item:last-child { border-bottom: none; }
     .cv-item-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 4px; flex-wrap: wrap; }
@@ -421,22 +307,14 @@
     .cv-item-sub { font-size: 0.82rem; color: var(--accent2); margin-bottom: 8px; }
     .cv-item-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
     .cv-skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .cv-skill-badge {
-      padding: 5px 12px; background: var(--surface); border: 1px solid var(--border);
-      border-radius: 4px; font-size: 0.75rem; color: var(--muted);
-    }
+    .cv-skill-badge { padding: 5px 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.75rem; color: var(--muted); }
 
-    /* CONTACT */
     .contact-section { padding: 100px 6%; }
     .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
     .contact-inner h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 20px; }
     .contact-inner p { color: var(--muted); line-height: 1.8; margin-bottom: 48px; }
     .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    .contact-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 28px; border-radius: 8px; font-weight: 700;
-      font-size: 0.9rem; text-decoration: none; transition: all 0.3s; cursor: none;
-    }
+    .contact-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; cursor: none; }
     .contact-btn-wa { background: #25d366; color: #fff; box-shadow: 0 0 30px rgba(37,211,102,0.3); }
     .contact-btn-wa:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(37,211,102,0.5); }
     .contact-btn-mail { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
@@ -444,22 +322,15 @@
     .contact-btn-li { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
     .contact-btn-li:hover { border-color: #0077b5; color: #0077b5; }
 
-    /* FOOTER */
-    footer {
-      padding: 32px 6%; border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-      position: relative; z-index: 1;
-    }
+    footer { padding: 32px 6%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; position: relative; z-index: 1; }
     footer p { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--muted); }
     footer .footer-links { display: flex; gap: 20px; }
     footer .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.72rem; font-family: 'Space Mono', monospace; transition: color 0.3s; }
     footer .footer-links a:hover { color: var(--accent); }
 
-    /* REVEAL ANIMATION */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .about-grid { grid-template-columns: 1fr; }
       .about-right { position: static; }
@@ -482,11 +353,9 @@
 </head>
 <body>
 
-  <!-- Custom cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
 
-  <!-- NAV -->
   <nav id="navbar">
     <div class="nav-logo">RHR<span>.</span></div>
     <ul class="nav-links">
@@ -518,16 +387,16 @@
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
     <div class="hero-content">
-      <div class="hero-label">Available for opportunities</div>
+      <div class="hero-label">Open to new opportunities</div>
       <h1 class="hero-name">
         <span class="line">Rahmad Haret</span>
         <span class="line accent-text">Rayhanda</span>
       </h1>
       <div class="hero-roles">
-        <span>Fullstack Developer</span> · Warehouse & PPIC · Data Analysis
-        <br>Process Optimization · 3D Designer · IT Director
+        <span>Fullstack Developer</span> &middot; Warehouse &amp; PPIC &middot; Data Analysis
+        <br>Process Optimization &middot; 3D Designer &middot; IT Director
       </div>
-      <p class="hero-desc">Industrial Engineering graduate from Andalas University, passionate about building efficient systems — from supply chains to full-stack web applications.</p>
+      <p class="hero-desc">Full-stack Developer &middot; IT Leader &middot; with hands-on experience delivering production-ready systems across Singapore and Indonesia — specializing in scalable web solutions, IT infrastructure, and real-world business impact.</p>
       <div class="hero-btns">
         <a href="#experience" class="btn-primary"><i class="ri-briefcase-line"></i> View Experience</a>
         <a href="#cv" class="btn-outline"><i class="ri-file-user-line"></i> Download CV</a>
@@ -535,7 +404,7 @@
       <div class="hero-social">
         <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank"><i class="ri-linkedin-fill"></i></a>
         <a href="https://github.com/retrayhanda" target="_blank"><i class="ri-github-fill"></i></a>
-        <a href="mailto:madrayhanda@gmail.com" target="_blank"><i class="ri-mail-line"></i></a>
+        <a href="mailto:madrayhanda@gmail.com"><i class="ri-mail-line"></i></a>
         <a href="https://retrayhanda.github.io/" target="_blank"><i class="ri-global-line"></i></a>
       </div>
     </div>
@@ -554,24 +423,24 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>As a Graduate Industrial Engineer from Andalas University, I bridge the gap between engineering principles and modern technology. My background spans warehouse management, logistics, process optimization, and full-stack web development.</p>
-        <p>With hands-on experience in data analysis, efficiency improvement, and system development, I apply data-driven solutions to real-world operational challenges. I'm committed to contributing practical, impactful work in dynamic environments.</p>
+        <p>I'm a results-driven professional with hands-on experience across web development, IT leadership, and industrial engineering &mdash; having worked with clients and organizations in <strong style="color:var(--text)">Singapore and Indonesia</strong>. From serving as an <strong style="color:var(--text)">IT Director</strong> overseeing full IT infrastructure, to delivering production-grade websites for multiple companies as a <strong style="color:var(--text)">contract and freelance developer</strong>, I bring both strategic and technical depth to every role.</p>
+        <p>My background spans full-stack development (PHP, Laravel, React.js, WordPress), data analysis with Power BI, 3D machine design, and operational systems &mdash; giving me a rare ability to work across engineering, technology, and business functions. I've successfully delivered projects for clients in consulting, construction, training, and logistics sectors.</p>
         <div class="about-stats">
           <div class="stat-card">
             <div class="stat-num">10+</div>
-            <div class="stat-label">Projects Completed</div>
+            <div class="stat-label">Projects Delivered</div>
           </div>
           <div class="stat-card">
-            <div class="stat-num">3.22</div>
-            <div class="stat-label">GPA — Andalas University</div>
+            <div class="stat-num">2+</div>
+            <div class="stat-label">Years Professional Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Countries / Markets Served</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">8+</div>
             <div class="stat-label">Certifications</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Languages</div>
           </div>
         </div>
       </div>
@@ -604,7 +473,7 @@
           </div>
           <div class="info-row">
             <i class="ri-translate-2"></i>
-            <span>Bahasa Indonesia (Native) · English</span>
+            <span>Bahasa Indonesia (Native) &middot; English</span>
           </div>
         </div>
       </div>
@@ -619,51 +488,46 @@
       <div class="section-line"></div>
     </div>
     <div class="exp-grid">
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-contract">Contract</span>
         <div class="exp-company">Huang He Consultancy Group</div>
         <div class="exp-role">Web Developer</div>
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Singapore</span>
-          <span><i class="ri-calendar-line"></i>Sep 2024 – Sep 2025</span>
+          <span><i class="ri-calendar-line"></i>Sep 2024 &ndash; Sep 2025</span>
         </div>
         <a href="https://hhgrp.asia/" target="_blank" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-fulltime">Full-time</span>
         <div class="exp-company">PT. Andalas Konsultan Sarana Infrastruktur</div>
         <div class="exp-role">Director of IT</div>
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Padang, Indonesia</span>
-          <span><i class="ri-calendar-line"></i>Sep 2024 – Jun 2025</span>
+          <span><i class="ri-calendar-line"></i>Sep 2024 &ndash; Jun 2025</span>
         </div>
         <a href="https://pt-aksi.com/" target="_blank" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-freelance">Freelance</span>
         <div class="exp-company">CV. Dhia Afna Anugerah Batam</div>
         <div class="exp-role">Web Developer</div>
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Batam, Indonesia</span>
-          <span><i class="ri-calendar-line"></i>Jan 2025 – Mei 2025</span>
+          <span><i class="ri-calendar-line"></i>Jan 2025 &ndash; Mei 2025</span>
         </div>
         <a href="https://dhiaafna-konstruksi.com/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-contract">Contract</span>
         <div class="exp-company">Chains Fusion</div>
         <div class="exp-role">Web Developer</div>
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Singapore</span>
-          <span><i class="ri-calendar-line"></i>Sep 2024 – Feb 2025</span>
+          <span><i class="ri-calendar-line"></i>Sep 2024 &ndash; Feb 2025</span>
         </div>
         <a href="https://www.chainsfusion.com/" target="_blank" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-freelance">Freelance</span>
         <div class="exp-company">Element5</div>
@@ -673,7 +537,6 @@
         </div>
         <a href="https://www.element5.asia/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-freelance">Freelance</span>
         <div class="exp-company">Asdin Associates</div>
@@ -683,7 +546,6 @@
         </div>
         <a href="https://www.asdin.sg/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">Andalas Training Center</div>
@@ -693,56 +555,68 @@
         </div>
         <a href="https://andalastrainingcenter.com/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
-        <div class="exp-company">IE PRO TECH — E-Learning</div>
+        <div class="exp-company">Alih Daya Andalas</div>
+        <div class="exp-role">Web Developer</div>
+        <div class="exp-meta">
+          <span><i class="ri-map-pin-line"></i>Padang, Indonesia</span>
+        </div>
+        <a href="https://alihdayaandalas.com/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-tag tag-project">Project</span>
+        <div class="exp-company">Paten Group</div>
+        <div class="exp-role">Web Developer</div>
+        <div class="exp-meta">
+          <span><i class="ri-map-pin-line"></i>Indonesia</span>
+        </div>
+        <a href="https://patengroup.co.id/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-tag tag-project">Project</span>
+        <div class="exp-company">IE PRO TECH &mdash; E-Learning</div>
         <div class="exp-role">Web LMS Developer</div>
         <div class="exp-meta">
-          <span><i class="ri-time-line"></i>Jul – Aug 2024</span>
+          <span><i class="ri-time-line"></i>Jul &ndash; Aug 2024</span>
         </div>
         <a href="https://learning.teknikindustriunand2050.my.id/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">Risk Management Website</div>
-        <div class="exp-role">Fullstack Developer — PHP / Laravel / MySQL</div>
+        <div class="exp-role">Fullstack Developer &mdash; PHP / Laravel / MySQL</div>
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Padang</span>
-          <span><i class="ri-calendar-line"></i>Feb – Jul 2024</span>
+          <span><i class="ri-calendar-line"></i>Feb &ndash; Jul 2024</span>
         </div>
         <a href="https://drive.google.com/drive/folders/1Rin1EHgjDLyMNJF-pIt-D2COLu_kzYJh?usp=sharing" target="_blank" class="exp-link">View Project <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Lab</span>
-        <div class="exp-company">Laboratory of Info Systems & Decisions</div>
-        <div class="exp-role">Lab Assistant · Dir. of Programming Practicum</div>
+        <div class="exp-company">Laboratory of Info Systems &amp; Decisions</div>
+        <div class="exp-role">Lab Assistant &middot; Dir. of Programming Practicum</div>
         <div class="exp-meta">
-          <span><i class="ri-calendar-line"></i>Jun 2023 – Jul 2024</span>
+          <span><i class="ri-calendar-line"></i>Jun 2023 &ndash; Jul 2024</span>
         </div>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">PT. Novalindo</div>
-        <div class="exp-role">3D Machine Design — SolidWorks & SketchUp</div>
+        <div class="exp-role">3D Machine Design &mdash; SolidWorks &amp; SketchUp</div>
         <div class="exp-meta">
-          <span><i class="ri-calendar-line"></i>Nov – Dec 2023</span>
+          <span><i class="ri-calendar-line"></i>Nov &ndash; Dec 2023</span>
         </div>
         <a href="https://drive.google.com/drive/folders/1wtqHUvA8SJ9lcuO517cYVkLFCOmjEgpo?usp=sharing" target="_blank" class="exp-link">View Work <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Volunteering</span>
         <div class="exp-company">Koto Aur Malintang Market</div>
-        <div class="exp-role">Market Layout Design — AutoCAD</div>
+        <div class="exp-role">Market Layout Design &mdash; AutoCAD</div>
         <div class="exp-meta">
           <span><i class="ri-calendar-line"></i>August 2023</span>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -755,8 +629,8 @@
     </div>
     <div class="edu-card reveal">
       <div class="edu-degree">Bachelor of Industrial Engineering</div>
-      <div class="edu-school">Andalas University — Faculty of Engineering</div>
-      <div class="edu-period">August 2020 – August 2024 · Padang, Indonesia</div>
+      <div class="edu-school">Andalas University &mdash; Faculty of Engineering</div>
+      <div class="edu-period">August 2020 &ndash; August 2024 &middot; Padang, Indonesia</div>
       <div class="edu-gpa">
         <i class="ri-award-line" style="color:var(--accent)"></i>
         <span>GPA: 3.22 / 4.00</span>
@@ -770,8 +644,8 @@
         <span class="edu-topic">Operations Management</span>
         <span class="edu-topic">System Design</span>
         <span class="edu-topic">Quality Control</span>
-        <span class="edu-topic">Optimization & Simulation</span>
-        <span class="edu-topic">Supply Chain & Logistics</span>
+        <span class="edu-topic">Optimization &amp; Simulation</span>
+        <span class="edu-topic">Supply Chain &amp; Logistics</span>
       </div>
     </div>
   </section>
@@ -784,62 +658,53 @@
       <div class="section-line"></div>
     </div>
     <div class="cert-grid">
-
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Discover Data Analysis</div>
         <div class="cert-date">Issued November 2023</div>
         <a href="https://drive.google.com/file/d/1E8eQ7ddUCrZgrm2jfIOH0zL6lIYo_1EH/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Describe Cloud Service Types</div>
         <div class="cert-date">Issued November 2023</div>
         <a href="https://drive.google.com/file/d/1bgPO-7Gdj3dwMYcZDljRquhrTCt6pWNq/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Get Started With Power Automate</div>
         <div class="cert-date">Issued November 2023</div>
         <a href="https://drive.google.com/file/d/1catWtHW1RM48exO9diT4mXH_0rk_sLIh/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Create Power BI Model Relationship</div>
         <div class="cert-date">Issued November 2023</div>
         <a href="https://drive.google.com/file/d/1MfCXgCxVm6BCW_fzXIlDc4WIQB_OBLyx/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Model Data In Power BI</div>
         <div class="cert-date">Issued November 2023</div>
         <a href="https://drive.google.com/file/d/13DHLo8DUqXJd7dHmri_SnKb3FGoz51Li/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Use Visual In Power BI</div>
         <div class="cert-date">Issued November 2023</div>
         <a href="https://drive.google.com/file/d/1N5rNl5mKihm1k5tF0knwHmcxZNXKJdFo/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="cert-card reveal">
         <div class="cert-issuer">RevoU</div>
         <div class="cert-name">Digital Marketing Mini Course</div>
         <div class="cert-date">Issued March 2022</div>
         <a href="https://drive.google.com/file/d/1EZYKzT8LbOABt-ba6-CWot32MpjEuBnY/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
-
       <div class="cert-card reveal">
         <div class="cert-issuer">Gerakan Nasional 1000 Startup Digital</div>
         <div class="cert-name">#Hack4ID</div>
         <div class="cert-date">Issued October 2023</div>
       </div>
-
     </div>
   </section>
 
@@ -850,7 +715,6 @@
       <h2 class="section-title">Skills</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="skills-category reveal">
       <div class="skills-cat-title">Programming Languages</div>
       <div class="skills-grid">
@@ -863,9 +727,8 @@
         <div class="skill-chip"><span>CSS</span></div>
       </div>
     </div>
-
     <div class="skills-category reveal">
-      <div class="skills-cat-title">Frameworks & Libraries</div>
+      <div class="skills-cat-title">Frameworks &amp; Libraries</div>
       <div class="skills-grid">
         <div class="skill-chip"><span>Laravel</span></div>
         <div class="skill-chip"><span>React.js</span></div>
@@ -875,9 +738,8 @@
         <div class="skill-chip"><span>WordPress</span></div>
       </div>
     </div>
-
     <div class="skills-category reveal">
-      <div class="skills-cat-title">Tools & Software</div>
+      <div class="skills-cat-title">Tools &amp; Software</div>
       <div class="skills-grid">
         <div class="skill-chip"><span>Figma</span></div>
         <div class="skill-chip"><span>Power BI</span></div>
@@ -893,7 +755,6 @@
         <div class="skill-chip"><span>Google Colab</span></div>
       </div>
     </div>
-
     <div class="skills-category reveal">
       <div class="skills-cat-title">Domain Skills</div>
       <div class="skills-grid">
@@ -914,91 +775,80 @@
       <h2 class="section-title">Curriculum Vitae</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="cv-wrapper reveal">
       <div class="cv-header">
         <div class="cv-header-info">
           <h2>Rahmad Haret Rayhanda</h2>
-          <p>Industrial Engineer · Web Developer · IT Director · Data Analyst</p>
-          <p style="margin-top:8px;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--muted);">madrayhanda@gmail.com · Singapore / Indonesia</p>
+          <p>Industrial Engineer &middot; Web Developer &middot; IT Director &middot; Data Analyst</p>
+          <p style="margin-top:8px;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--muted);">madrayhanda@gmail.com &middot; Singapore / Indonesia</p>
         </div>
         <a href="https://drive.google.com/file/d/1rWs1BlCf-75XRxZr6ZIhryeU0W47je-b/view?usp=sharing" target="_blank" class="cv-download">
           <i class="ri-external-link-line"></i> View Full CV
         </a>
       </div>
-
       <div class="cv-body">
-
         <div class="cv-section-block">
           <div class="cv-section-label">Work Experience</div>
-
           <div class="cv-item">
             <div class="cv-item-header">
               <div class="cv-item-title">Huang He Consultancy Group</div>
-              <div class="cv-item-period">Sep 2024 – Sep 2025</div>
+              <div class="cv-item-period">Sep 2024 &ndash; Sep 2025</div>
             </div>
-            <div class="cv-item-sub">Web Developer · Contract · Singapore</div>
+            <div class="cv-item-sub">Web Developer &middot; Contract &middot; Singapore</div>
             <div class="cv-item-desc">Designed, developed, and managed WordPress-based websites. Customized themes/plugins, optimized SEO and performance, integrated e-commerce and API solutions, implemented HTML/CSS/JS/PHP features.</div>
           </div>
-
           <div class="cv-item">
             <div class="cv-item-header">
               <div class="cv-item-title">PT. Andalas Konsultan Sarana Infrastruktur</div>
-              <div class="cv-item-period">Sep 2024 – Jun 2025</div>
+              <div class="cv-item-period">Sep 2024 &ndash; Jun 2025</div>
             </div>
-            <div class="cv-item-sub">Director of IT · Full-time · Padang, Indonesia</div>
+            <div class="cv-item-sub">Director of IT &middot; Full-time &middot; Padang, Indonesia</div>
             <div class="cv-item-desc">Oversaw strategic planning and implementation of IT systems. Managed IT budget, hardware/software/networks, cybersecurity (ISO 27001), and led/trained the IT team.</div>
           </div>
-
           <div class="cv-item">
             <div class="cv-item-header">
               <div class="cv-item-title">CV. Dhia Afna Anugerah Batam</div>
-              <div class="cv-item-period">Jan 2025 – Mei 2025</div>
+              <div class="cv-item-period">Jan 2025 &ndash; Mei 2025</div>
             </div>
-            <div class="cv-item-sub">Web Developer · Freelance · Batam, Indonesia</div>
+            <div class="cv-item-sub">Web Developer &middot; Freelance &middot; Batam, Indonesia</div>
             <div class="cv-item-desc">Developed and managed WordPress websites, customized themes/plugins, optimized performance and SEO.</div>
           </div>
-
           <div class="cv-item">
             <div class="cv-item-header">
-              <div class="cv-item-title">Risk Management Website — Andalas University</div>
-              <div class="cv-item-period">Feb 2024 – Jul 2024</div>
+              <div class="cv-item-title">Risk Management Website &mdash; Andalas University</div>
+              <div class="cv-item-period">Feb 2024 &ndash; Jul 2024</div>
             </div>
-            <div class="cv-item-sub">Fullstack Developer · Padang, Indonesia</div>
+            <div class="cv-item-sub">Fullstack Developer &middot; Padang, Indonesia</div>
             <div class="cv-item-desc">Built a full-stack risk management system using PHP/Laravel/MySQL. Designed UML diagrams, conducted system analysis, built verification/validation workflows, and provided risk level dashboards for faculties.</div>
           </div>
-
           <div class="cv-item">
             <div class="cv-item-header">
-              <div class="cv-item-title">Laboratory of Information Systems & Decisions</div>
-              <div class="cv-item-period">Jun 2023 – Jul 2024</div>
+              <div class="cv-item-title">Laboratory of Information Systems &amp; Decisions</div>
+              <div class="cv-item-period">Jun 2023 &ndash; Jul 2024</div>
             </div>
-            <div class="cv-item-sub">Lab Assistant · Director of Programming Practicum · Andalas University</div>
-            <div class="cv-item-desc">Led practicum sessions for 4 subjects (Engineering Drawing, Programming, Data Engineering, Information Systems). Designed Python practicum modules covering basic to OOP. Managed 4–5 student groups per session.</div>
+            <div class="cv-item-sub">Lab Assistant &middot; Director of Programming Practicum &middot; Andalas University</div>
+            <div class="cv-item-desc">Led practicum sessions for 4 subjects (Engineering Drawing, Programming, Data Engineering, Information Systems). Designed Python practicum modules covering basic to OOP. Managed 4&ndash;5 student groups per session.</div>
           </div>
-
           <div class="cv-item">
             <div class="cv-item-header">
               <div class="cv-item-title">PT. Novalindo</div>
-              <div class="cv-item-period">Nov 2023 – Dec 2023</div>
+              <div class="cv-item-period">Nov 2023 &ndash; Dec 2023</div>
             </div>
-            <div class="cv-item-sub">3D Machine Design · Padang, Indonesia</div>
+            <div class="cv-item-sub">3D Machine Design &middot; Padang, Indonesia</div>
             <div class="cv-item-desc">Measured machine components, created 3D models using SolidWorks and SketchUp, and produced engineering drawings from 3D models.</div>
           </div>
         </div>
-
         <div class="cv-section-block">
           <div class="cv-section-label">Education</div>
           <div class="cv-item">
             <div class="cv-item-header">
               <div class="cv-item-title">Andalas University</div>
-              <div class="cv-item-period">Aug 2020 – Aug 2024</div>
+              <div class="cv-item-period">Aug 2020 &ndash; Aug 2024</div>
             </div>
-            <div class="cv-item-sub">Bachelor of Industrial Engineering · GPA: 3.22</div>
+            <div class="cv-item-sub">Bachelor of Industrial Engineering &middot; GPA: 3.22</div>
             <div class="cv-item-desc">Thesis: Design of a Risk Management Website-Based Information System. Active in HMTI, Laboratory Assistant, Programming Practicum Coordinator.</div>
           </div>
         </div>
-
         <div class="cv-section-block">
           <div class="cv-section-label">Technical Skills</div>
           <div class="cv-skills-list">
@@ -1020,7 +870,6 @@
             <span class="cv-skill-badge">Git / GitHub</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1046,7 +895,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2024–2026 Rahmad Haret Rayhanda. All rights reserved.</p>
+    <p>&copy; 2024&ndash;2026 Rahmad Haret Rayhanda. All rights reserved.</p>
     <div class="footer-links">
       <a href="https://github.com/retrayhanda" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank">LinkedIn</a>
@@ -1056,49 +905,63 @@
 
   <script>
     // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    var cursor = document.getElementById('cursor');
+    var ring = document.getElementById('cursor-ring');
+    var mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX;
+      my = e.clientY;
+    });
     function animateCursor() {
-      cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
-      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-      ring.style.transform = `translate(${rx - 18}px, ${ry - 18}px)`;
+      cursor.style.transform = 'translate(' + (mx - 6) + 'px, ' + (my - 6) + 'px)';
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.transform = 'translate(' + (rx - 18) + 'px, ' + (ry - 18) + 'px)';
       requestAnimationFrame(animateCursor);
     }
     animateCursor();
 
     // Nav scroll
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     });
 
-    // Hamburger
-    const ham = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    ham.addEventListener('click', () => {
+    // Hamburger menu
+    var ham = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobile-menu');
+    ham.addEventListener('click', function() {
       ham.classList.toggle('open');
       mobileMenu.classList.toggle('open');
     });
-    document.querySelectorAll('.mobile-link').forEach(l => {
-      l.addEventListener('click', () => {
+    var mobileLinks = document.querySelectorAll('.mobile-link');
+    for (var i = 0; i < mobileLinks.length; i++) {
+      mobileLinks[i].addEventListener('click', function() {
         ham.classList.remove('open');
         mobileMenu.classList.remove('open');
       });
-    });
+    }
 
     // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i % 4 * 80);
-          observer.unobserve(e.target);
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          var delay = (i % 4) * 80;
+          setTimeout(function(el) {
+            el.classList.add('visible');
+          }, delay, entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    for (var j = 0; j < reveals.length; j++) {
+      observer.observe(reveals[j]);
+    }
   </script>
 </body>
 </html>
