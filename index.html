@@ -34,6 +34,12 @@
       cursor: none;
     }
 
+    /* All interactive elements get pointer cursor and pointer-events */
+    a, button, [role="button"] {
+      cursor: none;
+      pointer-events: auto;
+    }
+
     .cursor {
       width: 12px; height: 12px;
       background: var(--accent);
@@ -87,6 +93,7 @@
       font-size: 0.78rem; text-decoration: none; color: var(--muted);
       letter-spacing: 0.12em; text-transform: uppercase;
       position: relative; transition: color 0.3s;
+      pointer-events: auto;
     }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -4px; left: 0;
@@ -98,12 +105,13 @@
     .nav-cta {
       font-family: 'Space Mono', monospace; font-size: 0.75rem; padding: 8px 18px;
       border: 1px solid var(--accent); color: var(--accent);
-      background: transparent; border-radius: 4px; cursor: none;
+      background: transparent; border-radius: 4px;
       text-decoration: none; transition: all 0.3s; letter-spacing: 0.08em;
+      pointer-events: auto;
     }
     .nav-cta:hover { background: var(--accent); color: var(--bg); }
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; border: none; background: none; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; border: none; background: none; pointer-events: auto; }
     .hamburger span { width: 24px; height: 2px; background: var(--text); transition: all 0.3s; display: block; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -115,7 +123,7 @@
       z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 36px;
     }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 1.4rem; color: var(--text); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; }
+    .mobile-menu a { font-size: 1.4rem; color: var(--text); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; pointer-events: auto; }
     .mobile-menu a:hover { color: var(--accent); }
 
     .hero {
@@ -174,8 +182,9 @@
       display: inline-flex; align-items: center; gap: 8px;
       padding: 14px 28px; background: var(--accent); color: var(--bg);
       border: none; border-radius: 6px; font-family: 'Syne', sans-serif;
-      font-weight: 700; font-size: 0.9rem; cursor: none; text-decoration: none;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
       transition: all 0.3s; box-shadow: 0 0 30px rgba(0,212,255,0.3);
+      pointer-events: auto;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(0,212,255,0.5); }
 
@@ -183,7 +192,8 @@
       display: inline-flex; align-items: center; gap: 8px;
       padding: 14px 28px; border: 1px solid var(--border); color: var(--text);
       border-radius: 6px; font-family: 'Syne', sans-serif; font-weight: 600;
-      font-size: 0.9rem; cursor: none; text-decoration: none; transition: all 0.3s; background: transparent;
+      font-size: 0.9rem; text-decoration: none; transition: all 0.3s; background: transparent;
+      pointer-events: auto;
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -195,6 +205,7 @@
       width: 40px; height: 40px; border: 1px solid var(--border);
       border-radius: 8px; display: flex; align-items: center; justify-content: center;
       color: var(--muted); text-decoration: none; transition: all 0.3s; font-size: 18px;
+      pointer-events: auto;
     }
     .hero-social a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); box-shadow: var(--glow); }
 
@@ -233,15 +244,27 @@
     .info-row:last-child { border-bottom: none; }
     .info-row i { color: var(--accent); font-size: 16px; width: 20px; }
     .info-row span { font-size: 0.85rem; color: var(--muted); }
-    .info-row a { color: var(--text); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+    .info-row a { color: var(--text); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; pointer-events: auto; }
     .info-row a:hover { color: var(--accent); }
 
     .experience-section { padding: 100px 6%; background: var(--surface); }
     .exp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-    .exp-card { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; transition: all 0.3s; cursor: none; }
-    .exp-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,212,255,0.03), transparent); opacity: 0; transition: opacity 0.3s; }
+
+    /* Experience card - pointer-events explicitly set */
+    .exp-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      pointer-events: auto;
+    }
+    .exp-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,212,255,0.03), transparent); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
     .exp-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,212,255,0.1); }
     .exp-card:hover::after { opacity: 1; }
+
     .exp-tag { display: inline-block; padding: 4px 10px; border-radius: 4px; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
     .tag-contract { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.2); }
     .tag-fulltime { background: rgba(123,97,255,0.1); color: var(--accent2); border: 1px solid rgba(123,97,255,0.2); }
@@ -252,8 +275,22 @@
     .exp-meta { display: flex; gap: 12px; flex-wrap: wrap; }
     .exp-meta span { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
     .exp-meta i { font-size: 12px; }
-    .exp-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.78rem; color: var(--accent); text-decoration: none; transition: gap 0.3s; }
-    .exp-link:hover { gap: 10px; }
+
+    /* CRITICAL FIX: exp-link must have pointer-events and z-index above card overlay */
+    .exp-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: gap 0.3s, color 0.3s;
+      position: relative;
+      z-index: 2;
+      pointer-events: auto;
+    }
+    .exp-link:hover { gap: 10px; color: var(--accent); }
 
     .education-section { padding: 100px 6%; }
     .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 40px; position: relative; overflow: hidden; max-width: 800px; margin: 0 auto; }
@@ -274,7 +311,19 @@
     .cert-issuer { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent2); letter-spacing: 0.1em; }
     .cert-name { font-size: 0.95rem; font-weight: 700; line-height: 1.4; }
     .cert-date { font-size: 0.75rem; color: var(--muted); }
-    .cert-link { margin-top: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--accent2); text-decoration: none; transition: gap 0.3s; }
+    .cert-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--accent2);
+      text-decoration: none;
+      transition: gap 0.3s;
+      position: relative;
+      z-index: 2;
+      pointer-events: auto;
+    }
     .cert-link:hover { gap: 10px; }
 
     .skills-section { padding: 100px 6%; }
@@ -293,7 +342,13 @@
     .cv-header { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(123,97,255,0.08)); border-bottom: 1px solid var(--border); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
     .cv-header-info h2 { font-size: 1.8rem; font-weight: 800; }
     .cv-header-info p { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
-    .cv-download { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--accent); color: var(--bg); border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.3s; cursor: none; box-shadow: 0 0 30px rgba(0,212,255,0.3); white-space: nowrap; }
+    .cv-download {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
+      background: var(--accent); color: var(--bg); border-radius: 8px; font-weight: 700;
+      font-size: 0.85rem; text-decoration: none; transition: all 0.3s;
+      box-shadow: 0 0 30px rgba(0,212,255,0.3); white-space: nowrap;
+      pointer-events: auto;
+    }
     .cv-download:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(0,212,255,0.5); }
     .cv-body { padding: 48px; }
     .cv-section-block { margin-bottom: 40px; }
@@ -314,7 +369,11 @@
     .contact-inner h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 20px; }
     .contact-inner p { color: var(--muted); line-height: 1.8; margin-bottom: 48px; }
     .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    .contact-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; cursor: none; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+      border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: all 0.3s; pointer-events: auto;
+    }
     .contact-btn-wa { background: #25d366; color: #fff; box-shadow: 0 0 30px rgba(37,211,102,0.3); }
     .contact-btn-wa:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(37,211,102,0.5); }
     .contact-btn-mail { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
@@ -325,7 +384,7 @@
     footer { padding: 32px 6%; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; position: relative; z-index: 1; }
     footer p { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--muted); }
     footer .footer-links { display: flex; gap: 20px; }
-    footer .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.72rem; font-family: 'Space Mono', monospace; transition: color 0.3s; }
+    footer .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.72rem; font-family: 'Space Mono', monospace; transition: color 0.3s; pointer-events: auto; }
     footer .footer-links a:hover { color: var(--accent); }
 
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -402,16 +461,12 @@
         <a href="#cv" class="btn-outline"><i class="ri-file-user-line"></i> Download CV</a>
       </div>
       <div class="hero-social">
-        <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank"><i class="ri-linkedin-fill"></i></a>
-        <a href="https://github.com/retrayhanda" target="_blank"><i class="ri-github-fill"></i></a>
+        <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank" rel="noopener"><i class="ri-linkedin-fill"></i></a>
+        <a href="https://github.com/retrayhanda" target="_blank" rel="noopener"><i class="ri-github-fill"></i></a>
         <a href="mailto:madrayhanda@gmail.com"><i class="ri-mail-line"></i></a>
-        <a href="https://retrayhanda.github.io/" target="_blank"><i class="ri-global-line"></i></a>
+        <a href="https://retrayhanda.github.io/" target="_blank" rel="noopener"><i class="ri-global-line"></i></a>
       </div>
     </div>
-    <!-- <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div> -->
   </section>
 
   <!-- ABOUT -->
@@ -461,15 +516,15 @@
           </div>
           <div class="info-row">
             <i class="ri-linkedin-line"></i>
-            <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank">LinkedIn Profile</a>
+            <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank" rel="noopener">LinkedIn Profile</a>
           </div>
           <div class="info-row">
             <i class="ri-github-line"></i>
-            <a href="https://github.com/retrayhanda" target="_blank">github.com/retrayhanda</a>
+            <a href="https://github.com/retrayhanda" target="_blank" rel="noopener">github.com/retrayhanda</a>
           </div>
           <div class="info-row">
             <i class="ri-global-line"></i>
-            <a href="https://retrayhanda.github.io/" target="_blank">retrayhanda.github.io</a>
+            <a href="https://retrayhanda.github.io/" target="_blank" rel="noopener">retrayhanda.github.io</a>
           </div>
           <div class="info-row">
             <i class="ri-translate-2"></i>
@@ -488,6 +543,7 @@
       <div class="section-line"></div>
     </div>
     <div class="exp-grid">
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-contract">Contract</span>
         <div class="exp-company">Huang He Consultancy Group</div>
@@ -496,8 +552,9 @@
           <span><i class="ri-map-pin-line"></i>Singapore</span>
           <span><i class="ri-calendar-line"></i>Sep 2024 &ndash; Sep 2025</span>
         </div>
-        <a href="https://hhgrp.asia/" target="_blank" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
+        <a href="https://hhgrp.asia/" target="_blank" rel="noopener" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-fulltime">Full-time</span>
         <div class="exp-company">PT. Andalas Konsultan Sarana Infrastruktur</div>
@@ -506,8 +563,9 @@
           <span><i class="ri-map-pin-line"></i>Padang, Indonesia</span>
           <span><i class="ri-calendar-line"></i>Sep 2024 &ndash; Jun 2025</span>
         </div>
-        <a href="https://pt-aksi.com/" target="_blank" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
+        <a href="https://pt-aksi.com/" target="_blank" rel="noopener" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-freelance">Freelance</span>
         <div class="exp-company">CV. Dhia Afna Anugerah Batam</div>
@@ -516,8 +574,9 @@
           <span><i class="ri-map-pin-line"></i>Batam, Indonesia</span>
           <span><i class="ri-calendar-line"></i>Jan 2025 &ndash; Mei 2025</span>
         </div>
-        <a href="https://dhiaafna-konstruksi.com/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+        <a href="https://dhiaafna-konstruksi.com/" target="_blank" rel="noopener" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-contract">Contract</span>
         <div class="exp-company">Chains Fusion</div>
@@ -526,8 +585,9 @@
           <span><i class="ri-map-pin-line"></i>Singapore</span>
           <span><i class="ri-calendar-line"></i>Sep 2024 &ndash; Feb 2025</span>
         </div>
-        <a href="https://www.chainsfusion.com/" target="_blank" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
+        <a href="https://www.chainsfusion.com/" target="_blank" rel="noopener" class="exp-link">View Company <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-freelance">Freelance</span>
         <div class="exp-company">Element5</div>
@@ -535,8 +595,9 @@
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Singapore</span>
         </div>
-        <a href="https://www.element5.asia/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+        <a href="https://www.element5.asia/" target="_blank" rel="noopener" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-freelance">Freelance</span>
         <div class="exp-company">Asdin Associates</div>
@@ -544,8 +605,9 @@
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Singapore</span>
         </div>
-        <a href="https://www.asdin.sg/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+        <a href="https://www.asdin.sg/" target="_blank" rel="noopener" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">Andalas Training Center</div>
@@ -553,8 +615,9 @@
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Padang, Indonesia</span>
         </div>
-        <a href="https://andalastrainingcenter.com/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+        <a href="https://andalastrainingcenter.com/" target="_blank" rel="noopener" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">Alih Daya Andalas</div>
@@ -562,8 +625,9 @@
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Padang, Indonesia</span>
         </div>
-        <a href="https://alihdayaandalas.com/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+        <a href="https://alihdayaandalas.com/" target="_blank" rel="noopener" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">Paten Group</div>
@@ -571,8 +635,9 @@
         <div class="exp-meta">
           <span><i class="ri-map-pin-line"></i>Indonesia</span>
         </div>
-        <a href="https://patengroup.co.id/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+        <a href="https://patengroup.co.id/" target="_blank" rel="noopener" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">IE PRO TECH &mdash; E-Learning</div>
@@ -580,8 +645,9 @@
         <div class="exp-meta">
           <span><i class="ri-time-line"></i>Jul &ndash; Aug 2024</span>
         </div>
-        <a href="https://learning.teknikindustriunand2050.my.id/" target="_blank" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
+        <a href="https://learning.teknikindustriunand2050.my.id/" target="_blank" rel="noopener" class="exp-link">View Website <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">Risk Management Website</div>
@@ -590,8 +656,9 @@
           <span><i class="ri-map-pin-line"></i>Padang</span>
           <span><i class="ri-calendar-line"></i>Feb &ndash; Jul 2024</span>
         </div>
-        <a href="https://drive.google.com/drive/folders/1Rin1EHgjDLyMNJF-pIt-D2COLu_kzYJh?usp=sharing" target="_blank" class="exp-link">View Project <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/drive/folders/1Rin1EHgjDLyMNJF-pIt-D2COLu_kzYJh?usp=sharing" target="_blank" rel="noopener" class="exp-link">View Project <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Lab</span>
         <div class="exp-company">Laboratory of Info Systems &amp; Decisions</div>
@@ -600,6 +667,7 @@
           <span><i class="ri-calendar-line"></i>Jun 2023 &ndash; Jul 2024</span>
         </div>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Project</span>
         <div class="exp-company">PT. Novalindo</div>
@@ -607,8 +675,9 @@
         <div class="exp-meta">
           <span><i class="ri-calendar-line"></i>Nov &ndash; Dec 2023</span>
         </div>
-        <a href="https://drive.google.com/drive/folders/1wtqHUvA8SJ9lcuO517cYVkLFCOmjEgpo?usp=sharing" target="_blank" class="exp-link">View Work <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/drive/folders/1wtqHUvA8SJ9lcuO517cYVkLFCOmjEgpo?usp=sharing" target="_blank" rel="noopener" class="exp-link">View Work <i class="ri-arrow-right-line"></i></a>
       </div>
+
       <div class="exp-card reveal">
         <span class="exp-tag tag-project">Volunteering</span>
         <div class="exp-company">Koto Aur Malintang Market</div>
@@ -617,6 +686,7 @@
           <span><i class="ri-calendar-line"></i>August 2023</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -662,43 +732,43 @@
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Discover Data Analysis</div>
         <div class="cert-date">Issued November 2023</div>
-        <a href="https://drive.google.com/file/d/1E8eQ7ddUCrZgrm2jfIOH0zL6lIYo_1EH/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/file/d/1E8eQ7ddUCrZgrm2jfIOH0zL6lIYo_1EH/view?usp=sharing" target="_blank" rel="noopener" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Describe Cloud Service Types</div>
         <div class="cert-date">Issued November 2023</div>
-        <a href="https://drive.google.com/file/d/1bgPO-7Gdj3dwMYcZDljRquhrTCt6pWNq/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/file/d/1bgPO-7Gdj3dwMYcZDljRquhrTCt6pWNq/view?usp=sharing" target="_blank" rel="noopener" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Get Started With Power Automate</div>
         <div class="cert-date">Issued November 2023</div>
-        <a href="https://drive.google.com/file/d/1catWtHW1RM48exO9diT4mXH_0rk_sLIh/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/file/d/1catWtHW1RM48exO9diT4mXH_0rk_sLIh/view?usp=sharing" target="_blank" rel="noopener" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Create Power BI Model Relationship</div>
         <div class="cert-date">Issued November 2023</div>
-        <a href="https://drive.google.com/file/d/1MfCXgCxVm6BCW_fzXIlDc4WIQB_OBLyx/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/file/d/1MfCXgCxVm6BCW_fzXIlDc4WIQB_OBLyx/view?usp=sharing" target="_blank" rel="noopener" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Model Data In Power BI</div>
         <div class="cert-date">Issued November 2023</div>
-        <a href="https://drive.google.com/file/d/13DHLo8DUqXJd7dHmri_SnKb3FGoz51Li/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/file/d/13DHLo8DUqXJd7dHmri_SnKb3FGoz51Li/view?usp=sharing" target="_blank" rel="noopener" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="cert-card reveal">
         <div class="cert-issuer">Microsoft</div>
         <div class="cert-name">Use Visual In Power BI</div>
         <div class="cert-date">Issued November 2023</div>
-        <a href="https://drive.google.com/file/d/1N5rNl5mKihm1k5tF0knwHmcxZNXKJdFo/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/file/d/1N5rNl5mKihm1k5tF0knwHmcxZNXKJdFo/view?usp=sharing" target="_blank" rel="noopener" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="cert-card reveal">
         <div class="cert-issuer">RevoU</div>
         <div class="cert-name">Digital Marketing Mini Course</div>
         <div class="cert-date">Issued March 2022</div>
-        <a href="https://drive.google.com/file/d/1EZYKzT8LbOABt-ba6-CWot32MpjEuBnY/view?usp=sharing" target="_blank" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
+        <a href="https://drive.google.com/file/d/1EZYKzT8LbOABt-ba6-CWot32MpjEuBnY/view?usp=sharing" target="_blank" rel="noopener" class="cert-link">View Credential <i class="ri-arrow-right-line"></i></a>
       </div>
       <div class="cert-card reveal">
         <div class="cert-issuer">Gerakan Nasional 1000 Startup Digital</div>
@@ -782,7 +852,7 @@
           <p>Industrial Engineer &middot; Web Developer &middot; IT Director &middot; Data Analyst</p>
           <p style="margin-top:8px;font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--muted);">madrayhanda@gmail.com &middot; Singapore / Indonesia</p>
         </div>
-        <a href="https://drive.google.com/file/d/1rWs1BlCf-75XRxZr6ZIhryeU0W47je-b/view?usp=sharing" target="_blank" class="cv-download">
+        <a href="https://drive.google.com/file/d/1rWs1BlCf-75XRxZr6ZIhryeU0W47je-b/view?usp=sharing" target="_blank" rel="noopener" class="cv-download">
           <i class="ri-external-link-line"></i> View Full CV
         </a>
       </div>
@@ -880,13 +950,13 @@
       <h2>Let's <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Connect</span></h2>
       <p>I'm open to new opportunities in web development, logistics, data analysis, or IT management. Feel free to reach out through any of the channels below.</p>
       <div class="contact-links">
-        <a href="https://api.whatsapp.com/send?phone=6287856896541" target="_blank" class="contact-btn contact-btn-wa">
+        <a href="https://api.whatsapp.com/send?phone=6287856896541" target="_blank" rel="noopener" class="contact-btn contact-btn-wa">
           <i class="ri-whatsapp-line"></i> WhatsApp
         </a>
         <a href="mailto:madrayhanda@gmail.com" class="contact-btn contact-btn-mail">
           <i class="ri-mail-line"></i> Email Me
         </a>
-        <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank" class="contact-btn contact-btn-li">
+        <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank" rel="noopener" class="contact-btn contact-btn-li">
           <i class="ri-linkedin-fill"></i> LinkedIn
         </a>
       </div>
@@ -897,14 +967,13 @@
   <footer>
     <p>&copy; 2024&ndash;2026 Rahmad Haret Rayhanda. All rights reserved.</p>
     <div class="footer-links">
-      <a href="https://github.com/retrayhanda" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/retrayhanda" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/rahmad-haret-rayhanda-7568ba31b/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:madrayhanda@gmail.com">Email</a>
     </div>
   </footer>
 
   <script>
-    // Custom cursor
     var cursor = document.getElementById('cursor');
     var ring = document.getElementById('cursor-ring');
     var mx = 0, my = 0, rx = 0, ry = 0;
@@ -921,47 +990,35 @@
     }
     animateCursor();
 
-    // Nav scroll
     var navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Hamburger menu
     var ham = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobile-menu');
     ham.addEventListener('click', function() {
       ham.classList.toggle('open');
       mobileMenu.classList.toggle('open');
     });
-    var mobileLinks = document.querySelectorAll('.mobile-link');
-    for (var i = 0; i < mobileLinks.length; i++) {
-      mobileLinks[i].addEventListener('click', function() {
+    document.querySelectorAll('.mobile-link').forEach(function(link) {
+      link.addEventListener('click', function() {
         ham.classList.remove('open');
         mobileMenu.classList.remove('open');
       });
-    }
+    });
 
-    // Scroll reveal
     var reveals = document.querySelectorAll('.reveal');
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry, i) {
         if (entry.isIntersecting) {
           var delay = (i % 4) * 80;
-          setTimeout(function(el) {
-            el.classList.add('visible');
-          }, delay, entry.target);
+          setTimeout(function(el) { el.classList.add('visible'); }, delay, entry.target);
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-    for (var j = 0; j < reveals.length; j++) {
-      observer.observe(reveals[j]);
-    }
+    reveals.forEach(function(el) { observer.observe(el); });
   </script>
 </body>
 </html>
