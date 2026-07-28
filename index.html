@@ -575,6 +575,11 @@
       color:#ffc800;
     }
 
+    .tag-remote{
+      background:rgba(255,107,107,.1);
+      color:var(--accent3);
+    }
+
     .exp-company{
       font-size:1.1rem;
       font-weight:700;
@@ -601,6 +606,137 @@
 
     .skills-section{
       padding:100px 6%;
+    }
+
+    .portfolio-section{
+      padding:100px 6%;
+      position:relative;
+      z-index:1;
+    }
+
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+      gap:20px;
+    }
+
+    .video-card{
+      position:relative;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      aspect-ratio:16/10;
+      cursor:none;
+      transition:border-color .3s, transform .3s;
+    }
+
+    .video-card:hover{
+      border-color:rgba(0,212,255,.4);
+      transform:translateY(-6px);
+    }
+
+    .video-card video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .video-overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(123,97,255,.12));
+      opacity:0;
+      transition:opacity .3s;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .video-card:hover .video-overlay{
+      opacity:1;
+    }
+
+    .play-btn{
+      width:64px;
+      height:64px;
+      border:2px solid var(--accent);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transform:scale(.8);
+      transition:transform .3s;
+      background:rgba(8,12,20,.5);
+    }
+
+    .video-card:hover .play-btn{
+      transform:scale(1);
+    }
+
+    .play-btn svg{
+      fill:var(--accent);
+      margin-left:4px;
+    }
+
+    .video-label{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:16px 20px;
+      background:linear-gradient(to top,rgba(8,12,20,.95),transparent);
+      font-family:'Space Mono',monospace;
+      font-size:.68rem;
+      letter-spacing:.1em;
+      color:var(--muted);
+      text-transform:uppercase;
+      transform:translateY(100%);
+      transition:transform .3s;
+    }
+
+    .video-card:hover .video-label{
+      transform:translateY(0);
+    }
+
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.92);
+      z-index:9996;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .lightbox.active{
+      display:flex;
+    }
+
+    .lightbox-inner{
+      max-width:900px;
+      width:100%;
+      position:relative;
+    }
+
+    .lightbox video{
+      width:100%;
+      border-radius:8px;
+      border:1px solid var(--border);
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:-44px;
+      right:0;
+      background:none;
+      border:none;
+      color:var(--text);
+      font-size:32px;
+      cursor:none;
+      line-height:1;
     }
 
     .skills-category{
@@ -784,6 +920,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#cv">CV</a></li>
   </ul>
 
@@ -827,7 +964,7 @@
         View Experience
       </a>
 
-      <a href="#cv" class="btn-outline">
+      <a href="https://drive.google.com/file/d/1sjnsaGNOG_yJWLani8LUs31ZBKf9pqBl/view?usp=sharing" class="btn-outline">
         <i class="ri-file-user-line"></i>
         Download CV
       </a>
@@ -927,7 +1064,7 @@
       <div class="info-row">
         <i class="ri-phone-line"></i>
         <a href="tel:+6287856896541">
-          +62 878-5689-6541
+          +62 859-7538-7270
         </a>
       </div>
 
@@ -954,6 +1091,23 @@
   </div>
 
   <div class="exp-grid">
+
+    <div class="exp-card">
+      <span class="exp-tag tag-remote">Remote · AI</span>
+
+      <div class="exp-company">
+        DigiTal
+      </div>
+
+      <div class="exp-role">
+        Fullstack Developer
+      </div>
+
+      <div class="exp-meta">
+        <span>Germany</span>
+        <span>June 2026 – Present</span>
+      </div>
+    </div>
 
     <div class="exp-card">
       <span class="exp-tag tag-contract">Contract</span>
@@ -1056,11 +1210,124 @@
 
 </section>
 
+<!-- PORTFOLIO VIDEO -->
+<section class="portfolio-section" id="portfolio">
+
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Video Portfolio</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="video-grid">
+
+    <div class="video-card" onclick="openLightbox('videos/portfolio1.mp4')">
+      <video src="videos/portfolio1.mp4" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 01</div>
+    </div>
+
+    <div class="video-card" onclick="openLightbox('videos/portfolio2.mp4')">
+      <video src="videos/portfolio2.mp4" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 02</div>
+    </div>
+
+    <div class="video-card" onclick="openLightbox('videos/portfolio3.mp4')">
+      <video src="videos/portfolio3.mp4" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 03</div>
+    </div>
+
+        <div class="video-card" onclick="openLightbox('video4.mov')">
+      <video src="video4.mov" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 04</div>
+    </div>
+
+        <div class="video-card" onclick="openLightbox('video5.mov')">
+      <video src="video5.mov" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 05</div>
+    </div>
+
+        <div class="video-card" onclick="openLightbox('video6.mov')">
+      <video src="video6.mov" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 06</div>
+    </div>
+
+        <div class="video-card" onclick="openLightbox('video7.mov')">
+      <video src="video7.mov" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 07</div>
+    </div>
+
+        <div class="video-card" onclick="openLightbox('video8.mov')">
+      <video src="video8.mov" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 08</div>
+    </div>
+
+        <div class="video-card" onclick="openLightbox('video9.mov')">
+      <video src="video9.mov" muted loop playsinline autoplay></video>
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-label">Project Review — 09</div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- VIDEO LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <video id="lightboxVideo" controls style="width:100%;"></video>
+  </div>
+</div>
+
 <!-- CV -->
 <section class="cv-section" id="cv">
 
   <div class="section-header">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
     <h2 class="section-title">Curriculum Vitae</h2>
     <div class="section-line"></div>
   </div>
@@ -1080,12 +1347,12 @@
         </p>
 
         <p style="margin-top:8px;font-family:'Space Mono',monospace;font-size:.72rem;color:var(--muted);">
-          +62 878-5689-6541 · madrayhanda@gmail.com
+          +62 859-7538-7270 · madrayhanda@gmail.com
         </p>
 
       </div>
 
-      <a href="#" class="cv-download">
+      <a href="https://drive.google.com/file/d/1sjnsaGNOG_yJWLani8LUs31ZBKf9pqBl/view?usp=sharing" class="cv-download">
         <i class="ri-download-line"></i>
         Download CV
       </a>
@@ -1099,6 +1366,20 @@
 
         <div class="cv-section-label">
           Work Experience
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <span class="cv-item-title">Fullstack Developer</span>
+            <span class="cv-item-period">June 2026 – Present</span>
+          </div>
+          <div class="cv-item-sub">DigiTal · Germany · Remote</div>
+          <div class="cv-item-desc">
+            Developed an AI-based system for WordPress websites capable of automatically resolving issues related to speed optimization, content optimization, image and video handling, SEO, security, and backup.
+            Built AI-driven features enabling the system to perform automatic website redesign based on analysis and optimization needs.
+            Worked in an AI-based company environment, combining fullstack development skills with AI integration to deliver end-to-end website optimization solutions.
+            Collaborated remotely with an international team to design and implement scalable AI-powered web solutions.
+          </div>
         </div>
 
         <div class="cv-item">
@@ -1327,6 +1608,58 @@
   }
 
   animateCursor();
+
+  // PORTFOLIO VIDEO LIGHTBOX
+  function openLightbox(src){
+
+    var lb = document.getElementById('lightbox');
+    var vid = document.getElementById('lightboxVideo');
+
+    vid.src = src;
+    lb.classList.add('active');
+    vid.play();
+
+  }
+
+  function closeLightbox(e){
+
+    if(!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')){
+
+      var lb = document.getElementById('lightbox');
+      var vid = document.getElementById('lightboxVideo');
+
+      vid.pause();
+      vid.src = '';
+      lb.classList.remove('active');
+
+    }
+
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLightbox();
+  });
+
+  var videoObserver = new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+      var video = entry.target.querySelector('video');
+      if(!video) return;
+
+      if(entry.isIntersecting){
+        video.play().catch(function(){});
+      } else {
+        video.pause();
+      }
+
+    });
+
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.video-card').forEach(function(card){
+    videoObserver.observe(card);
+  });
 
   var navbar = document.getElementById('navbar');
 
