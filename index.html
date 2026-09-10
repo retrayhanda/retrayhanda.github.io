@@ -902,6 +902,288 @@
       color:var(--muted);
     }
 
+    .nav-toggle{
+      display:none;
+      width:42px;
+      height:42px;
+      align-items:center;
+      justify-content:center;
+      border:1px solid var(--border);
+      border-radius:6px;
+      background:transparent;
+      color:var(--accent);
+      font-size:1.35rem;
+    }
+
+    @media (max-width: 900px){
+      nav{
+        padding:16px 5%;
+      }
+
+      nav.scrolled{
+        padding:12px 5%;
+      }
+
+      .nav-links{
+        gap:18px;
+      }
+
+      .nav-links a{
+        font-size:.7rem;
+      }
+
+      .hero,
+      .about-section,
+      .experience-section,
+      .skills-section,
+      .portfolio-section,
+      .cv-section{
+        padding-left:5%;
+        padding-right:5%;
+      }
+
+      .hero{
+        padding-top:110px;
+      }
+
+      .about-grid{
+        gap:32px;
+      }
+
+      .exp-grid,
+      .video-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .cv-header,
+      .cv-body{
+        padding:32px;
+      }
+    }
+
+    @media (max-width: 680px){
+      body{
+        cursor:auto;
+      }
+
+      a,
+      button,
+      .video-card{
+        cursor:pointer;
+      }
+
+      .cursor,
+      .cursor-ring{
+        display:none;
+      }
+
+      nav{
+        padding:12px 5%;
+      }
+
+      .nav-toggle{
+        display:flex;
+      }
+
+      .nav-cta{
+        display:none;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        display:flex;
+        flex-direction:column;
+        gap:0;
+        padding:8px 5%;
+        background:rgba(8,12,20,.97);
+        border-bottom:1px solid var(--border);
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(-8px);
+        transition:opacity .25s, transform .25s, visibility .25s;
+      }
+
+      .nav-links.is-open{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+      }
+
+      .nav-links li{
+        border-bottom:1px solid var(--border);
+      }
+
+      .nav-links li:last-child{
+        border-bottom:none;
+      }
+
+      .nav-links a{
+        display:block;
+        padding:14px 0;
+        font-size:.72rem;
+      }
+
+      .hero{
+        min-height:auto;
+        padding-top:140px;
+        padding-bottom:72px;
+      }
+
+      .hero-name{
+        font-size:clamp(2.4rem,12vw,4rem);
+      }
+
+      .hero-label{
+        font-size:.65rem;
+        letter-spacing:.12em;
+      }
+
+      .hero-desc{
+        font-size:.92rem;
+        line-height:1.7;
+      }
+
+      .hero-btns{
+        margin-top:32px;
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn-primary,
+      .btn-outline{
+        justify-content:center;
+        padding:13px 20px;
+      }
+
+      .hero-social{
+        margin-top:36px;
+      }
+
+      .about-section,
+      .experience-section,
+      .skills-section,
+      .portfolio-section,
+      .cv-section{
+        padding-top:72px;
+        padding-bottom:72px;
+      }
+
+      .section-header{
+        gap:10px;
+        margin-bottom:36px;
+      }
+
+      .section-title{
+        font-size:clamp(1.5rem,7vw,2rem);
+      }
+
+      .section-line{
+        min-width:12px;
+      }
+
+      .about-grid,
+      .exp-grid,
+      .video-grid{
+        grid-template-columns:1fr;
+      }
+
+      .about-text p{
+        font-size:.92rem;
+      }
+
+      .about-stats{
+        gap:12px;
+        margin-top:28px;
+      }
+
+      .stat-card,
+      .about-card,
+      .exp-card{
+        padding:20px;
+      }
+
+      .stat-num{
+        font-size:1.65rem;
+      }
+
+      .info-row{
+        align-items:flex-start;
+      }
+
+      .info-row span,
+      .info-row a{
+        min-width:0;
+        overflow-wrap:anywhere;
+      }
+
+      .skills-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .skill-chip{
+        padding:12px 8px;
+        font-size:.76rem;
+      }
+
+      .video-label{
+        transform:translateY(0);
+        padding:12px 14px;
+        font-size:.6rem;
+      }
+
+      .video-overlay{
+        opacity:1;
+      }
+
+      .cv-wrapper{
+        border-radius:12px;
+      }
+
+      .cv-header,
+      .cv-body{
+        padding:24px 20px;
+      }
+
+      .cv-header{
+        align-items:flex-start;
+      }
+
+      .cv-header-info h2{
+        font-size:1.35rem;
+      }
+
+      .cv-header-info p{
+        font-size:.8rem;
+        line-height:1.6;
+      }
+
+      .cv-download{
+        width:100%;
+        justify-content:center;
+      }
+
+      .cv-item-title{
+        line-height:1.45;
+      }
+
+      .cv-item-desc{
+        font-size:.78rem;
+        line-height:1.65;
+      }
+
+      .lightbox{
+        padding:14px;
+      }
+
+      .lightbox-close{
+        top:-38px;
+        font-size:28px;
+      }
+    }
+
   </style>
 </head>
 
@@ -923,6 +1205,10 @@
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#cv">CV</a></li>
   </ul>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <i class="ri-menu-line"></i>
+  </button>
 
   <a href="#contact" class="nav-cta">
     Contact
@@ -1662,6 +1948,29 @@
   });
 
   var navbar = document.getElementById('navbar');
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.querySelector('.nav-links');
+
+  navToggle.addEventListener('click', function(){
+
+    var isOpen = navLinks.classList.toggle('is-open');
+
+    navToggle.setAttribute('aria-expanded', isOpen);
+    navToggle.querySelector('i').className = isOpen ? 'ri-close-line' : 'ri-menu-line';
+
+  });
+
+  navLinks.querySelectorAll('a').forEach(function(link){
+
+    link.addEventListener('click', function(){
+
+      navLinks.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.querySelector('i').className = 'ri-menu-line';
+
+    });
+
+  });
 
   window.addEventListener('scroll', function(){
 
